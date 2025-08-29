@@ -1,4 +1,14 @@
 import express from 'express';
+import momgoose from 'mongoose';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+momgoose.connect(process.env.MONGO).then(
+    () => {console.log('MongoDb is connected')},
+).catch(err => {
+    console.log(err);
+});
 
 const app = express();
 
